@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: auth
-          image: gcr.io/ticketing-dev-342606/auth
+          # image: gcr.io/ticketing-dev-342606/auth
+          image: ibrodex/auth
 ---
 apiVersion: v1
 kind: Service
