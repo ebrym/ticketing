@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Password } from "../services/password";
 // check properties explicitly
 interface IUserAtrributes {
     email: string;
@@ -19,6 +20,14 @@ interface userDocument extends mongoose.Document {
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
+});
+
+userSchema.pre('save', async function(done){
+    if (this.isModified('password')){
+        const hashedPassword = await Password.toHash(this.get('password'));
+        this.set('password', hashedPassword);
+    }
+    done();
 });
 
 userSchema.statics.build  = (attributes: IUserAtrributes) => {
