@@ -7,6 +7,7 @@ import {currentUserRouter} from './routes/current-user';
 import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
 import { signupRouter } from './routes/signup';
+import { allUsersRouter } from './routes/all-users';
 import { errorHandler } from './middleware/error-handler';
 import { NotFoundError } from './errors/not-found-error';
 import cookieSession from 'cookie-session';
@@ -21,6 +22,7 @@ app.use(
     })
 );
 app.use(currentUserRouter);
+app.use(allUsersRouter);
 app.use(signinRouter);
 app.use(signoutRouter);
 app.use(signupRouter);

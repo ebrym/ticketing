@@ -25,6 +25,7 @@ async (req: Request, res:Response) => {
     // checking if user exist with same email
     const isUserExists = await User.findOne({email});
 
+
     if(!isUserExists){
         throw new BadRequestError('User does not exists');
     }
@@ -49,7 +50,7 @@ async (req: Request, res:Response) => {
 
 
     res.status(200).send({message: 'signin successful', data: isUserExists});
-    console.log("Signed in a user");
+   
 }catch(err){
     console.log(err);
 }
