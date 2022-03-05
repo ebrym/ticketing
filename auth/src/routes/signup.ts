@@ -48,7 +48,7 @@ validateRequest,
 
 
     res.status(201).send({message: 'User created successfully', data: user});
-    console.log("Creating a user");
+   
 }catch(err){
     console.log(err);
 }
