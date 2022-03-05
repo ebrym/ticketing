@@ -1,12 +1,15 @@
 import express from 'express';
+import jwt from 'jsonwebtoken';
+
+
+
 const router = express.Router();
 
 router.get('/api/users/currentuser', (req, res) => {
-    res.send({
-        id: 1,
-        name: 'John Doe',
-        email: 'j@d.c'
-    });
+   
+    if(!req.session?.jwt){
+        return res.send({currentUser: null});
+    }
 });
 
 export { router as currentUserRouter };

@@ -16,6 +16,12 @@ spec:
         - name: auth
           # image: gcr.io/ticketing-dev-342606/auth
           image: ibrodex/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secrete
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
