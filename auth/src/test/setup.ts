@@ -6,7 +6,7 @@ import {app} from '../app';
 declare global {
     namespace NodeJS {
         interface Global {
-            signin(): Promise<string[]>
+            signin(): Promise<string[]>;
         }
     }
 }
@@ -37,18 +37,18 @@ afterAll(async () => {
     }
 );
 
-global.signin = async () => {
-    const email = 'ibrodex@gmail.com';
-    const password = 'password123';
+// global.signin = async () => {
+//     const email = 'ibrodex@gmail.com';
+//     const password = 'password123';
 
-    const response = await request(app)
-    .post('/api/users/signup')
-    .send({
-        email,password
-    })
-    .expect(201);
+//     const response = await request(app)
+//     .post('/api/users/signup')
+//     .send({
+//         email,password
+//     })
+//     .expect(201);
 
-    const cookie = response.get('Set-Cookie');
+//     const cookie = response.get('Set-Cookie');
 
-    return cookie;
-}
+//     return cookie;
+// };
