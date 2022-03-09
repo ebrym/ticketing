@@ -1,5 +1,5 @@
 import express from 'express';
-import { currentUser } from '../middleware/current-users';
+import { currentUser } from '@ebrym/common';
 
 
 

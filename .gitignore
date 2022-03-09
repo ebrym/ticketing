@@ -104,9 +104,10 @@ dist
 .tern-port
 
 
-/build
+#/build
 /node_modules
 auth/package-lock.json
 client/package-lock.json
-/build
+common/package-lock.json
+#/build
 /.next

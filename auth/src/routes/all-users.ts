@@ -1,6 +1,5 @@
 import express from 'express';
-import { currentUser } from '../middleware/current-users';
-import { requireAuth } from '../middleware/require-auth';
+import { currentUser, requireAuth } from '@ebrym/common';
 import { User } from '../models/user';
 
 
