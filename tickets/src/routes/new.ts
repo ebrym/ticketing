@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import nats from 'node-nats-streaming';
-import { requireAuth, validateRequest } from '@sgtickets/common';
+import { requireAuth, validateRequest } from '@ebrym/common';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();

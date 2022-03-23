@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../app';
 import jwt from 'jsonwebtoken';
+import '@type/jest';
+
 
 declare global {
   namespace NodeJS {
