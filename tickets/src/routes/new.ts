@@ -3,6 +3,8 @@ import { body } from 'express-validator';
 import nats from 'node-nats-streaming';
 import { requireAuth, validateRequest } from '@ebrym/common';
 import { Ticket } from '../models/ticket';
+import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -30,6 +32,12 @@ router.post(
     });
     await ticket.save();
 
+    await new TicketCreatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,  
+      userId: ticket.userId,
+    });
     const event = {
       type: 'ticket:created',
       data: ticket,
