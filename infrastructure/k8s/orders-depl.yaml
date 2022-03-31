@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
+          # image: gcr.io/ticketing-dev-342606/orders
           image: ibrodex/orders
           env:
             - name: NATS_CLIENT_ID
@@ -29,7 +30,7 @@ spec:
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: jwt-secret
+                  name: jwt-secrete
                   key: JWT_KEY
 ---
 apiVersion: v1
@@ -44,3 +45,4 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
+  
